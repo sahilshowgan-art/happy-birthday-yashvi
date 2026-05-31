@@ -23,6 +23,7 @@ text-align:center;
 position:relative;
 }
 .active{display:flex}
+.page{transition:opacity .5s ease;opacity:1;}
 .card{
 max-width:700px;
 width:100%;
@@ -69,7 +70,7 @@ padding-right:10px;
 <h2>Question 1 🤔</h2>
 <p>Who is the bigger overthinker?</p>
 <button onclick="next('p3')">Yashvi</button>
-<button onclick="next('p3')">Definitely Yashvi 😭</button>
+<button onclick="next('p3')">Yashvi after saying "I need to tell you something" and then vanishing 😭</button>
 </div>
 </div>
 
@@ -79,7 +80,7 @@ padding-right:10px;
 <h2>Question 2 😭</h2>
 <p>Who unofficially asked whom out first?</p>
 <button onclick="next('p4')">Yashvi did</button>
-<button onclick="next('p4')">Definitely Yashvi did 😌</button>
+<button onclick="next('p4')">This is a multiple choice question but somehow both answers are Yashvi 😌</button>
 </div>
 </div>
 
@@ -88,8 +89,19 @@ padding-right:10px;
 <div class="card">
 <h2>Question 3 🎂</h2>
 <p>Ready for your birthday surprise?</p>
-<button onclick="next('p4_5')">Yes ❤️</button>
-<button onclick="next('p4_5')">YESSSS 😭</button>
+<button onclick="next('p4_4')">Yes ❤️</button>
+<button onclick="next('p4_4')">No, first return my emotional damage from all the overthinking 😭</button>
+</div>
+</div>
+
+
+<div class="page" id="p4_4">
+<div class="bg"></div>
+<div class="card">
+<h2>Bonus Question 😭</h2>
+<p>Who is always right?</p>
+<button onclick="next('p4_5')">Yashvi</button>
+<button onclick="next('p4_5')">Yashvi (I was forced to add this option)</button>
 </div>
 </div>
 
@@ -106,25 +118,23 @@ padding-right:10px;
 <div class="page" id="p5">
 <div class="bg"></div>
 <div class="card message">
-<h1>❤️ Happy Birthday Yashvi ❤️</h1>
+<h1>❤️ Happy Birthday Donkieee❤️</h1>
 <p>
-Today is about you.<br><br>
+I know you're probably judging this website right now, but I made it anyway 😭<br><br>
 
-I know you get embarrassed whenever someone says nice things about you, so I'll try to keep this short 😭.<br><br>
+I'm really glad we started talking and that somehow all those random conversations led us here.<br><br>
 
-Thank you for all the random conversations, the laughs, the arguments, the overthinking sessions and all the memories we've made so far.<br><br>
+It's only been a short time, but you've already become one of my favourite people to talk to.<br><br>
 
-I hope this year brings you happiness, good health, success and lots of reasons to smile.<br><br>
+Thank you for all the laughs, the chaos, the random discussions and the overthinking sessions 😭.<br><br>
 
-I hope every goal you're working towards becomes reality because I know how hard you work for the things that matter to you.<br><br>
+I hope this year brings you lots of happiness, success and reasons to smile.<br><br>
 
-You're genuinely one of my favourite people and I'm really glad you're in my life.<br><br>
+Enjoy your birthday, eat lots of cake and try not to overthink too much (impossible challenge).<br><br>
 
-So here's to more memories, more adventures and fewer overthinking sessions (although we both know that's not happening 😭).<br><br>
+Happy Birthday Donkieee 🎂❤️<br><br>
 
-Happy Birthday Madam Bhandiii ❤️<br><br>
-
-— Sahil
+— BHAGWAAN
 </p>
 <button onclick="next('p6')">One Last Thing →</button>
 </div>
@@ -134,15 +144,21 @@ Happy Birthday Madam Bhandiii ❤️<br><br>
 <div class="bg"></div>
 <div class="card">
 <h1>❤️</h1>
-<h2>Thank you for being you.</h2>
-<p>Official proposal pending next semester 😌</p>
+<h2>Congratulations 😭</h2><p>You have successfully completed the Yashvi Birthday Website.<br><br>Your reward: Cake 🎂<br><br>(Please collect it from the nearest Sahil)</p>
 </div>
 </div>
 
 <script>
 function next(id){
-document.querySelector('.active').classList.remove('active');
-document.getElementById(id).classList.add('active');
+const current=document.querySelector('.active');
+current.style.opacity='0';
+setTimeout(()=>{
+current.classList.remove('active');
+const nextPage=document.getElementById(id);
+nextPage.classList.add('active');
+nextPage.style.opacity='0';
+setTimeout(()=>{nextPage.style.opacity='1';},50);
+},1000);
 }
 for(let i=0;i<35;i++){
 let e=document.createElement('div');
